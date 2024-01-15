@@ -1,5 +1,6 @@
 package com.book.store.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,9 +14,8 @@ public class MyBook {
     @Column(name = "id")
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
-    @MapsId
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "book_id")
     private Book book;
 
     public int getId() {

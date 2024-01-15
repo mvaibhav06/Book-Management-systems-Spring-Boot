@@ -1,5 +1,6 @@
 package com.book.store.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,6 +22,7 @@ public class Book {
     private int price;
 
     @OneToOne(mappedBy = "book", fetch = FetchType.LAZY)
+    @JsonIgnore
     private MyBook myBook;
 
     public Book() {
